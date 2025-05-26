@@ -2,47 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Automation | Daniel Lazo</title>
   <link rel="stylesheet" href="_style.css" />
 </head>
 <body>
-
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <h2>Automation</h2>
-      <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
-    </div>
-    <ul class="post-list" id="automation-posts"></ul>
-  </aside>
-
-  <!-- Main content -->
-  <main class="content">
-    <div class="top-nav">
-      <a href="../index.html" class="back-link">← Back to Home</a>
-    </div>    
-    <section class="banner" id="rpa-banner">
-      <div class="overlay">
-        <h1 id="banner-title">Loading...</h1>
-      </div>
-    </section>    
-
-    <article class="post-body">
-      <p>
-        Welcome to the Automation section. This featured article explains how I use Power Automate
-        and Power Apps to reduce manual reporting processes, eliminate repetitive email tasks, and integrate approvals seamlessly with Outlook and Teams.
-      </p>
-      <p>
-        This home page acts like the full article page — giving visitors immediate value — and the left sidebar helps navigate to other posts.
-      </p>
-    </article>
-  </main>
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">Daniel Lazo</div>
+      <div class="hamburger" onclick="toggleMenu()" id="hamburger">☰</div>
+      <ul class="nav-links" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="main-blog-posts.html">Blog Posts</a></li>
+        <li><a href="main-bi-content.html">Business Intelligence</a></li>
+        <li><a href="main-rpa-content.html" class="active">Automation</a></li>
+        <li><a href="main-ai-content.html">AI Content</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="hero-image">
+    <img src="../assets/images/automation-robot.png" alt="Pixel robot" />
+  </div>
+  <div class="container">
+    <h1>Automation</h1>
+    <p class="intro-text">
+      Robotic Process Automation (RPA) has its roots in the early 2000s, emerging as businesses sought to automate repetitive tasks in enterprise applications. By combining technologies like screen scraping and workflow automation, RPA evolved into a powerful tool for improving efficiency and reducing costs.
+    </p>
+    <div id="rpa-tiles" class="tiles-container"></div>
+  </div>
 
   <script src="_home.js"></script>
-  <script>
-    renderPosts(rpaPosts, "automation-posts", "rpa-content");
-    loadLatestPostHero(rpaPosts, "rpa-banner", "banner-title");
-  </script>
 </body>
 </html>
