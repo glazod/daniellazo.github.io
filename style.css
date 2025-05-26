@@ -44,15 +44,17 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 4rem 1rem;
   gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
 @media(min-width: 768px) {
   .hero {
     flex-direction: row;
     text-align: left;
-    padding: 6rem 4rem;
+    padding: 6rem 2rem;
   }
 }
 
@@ -94,3 +96,96 @@ body {
   border-radius: 50%;
   border: 4px solid #e91e63;
 }
+
+.nav-brand {
+  font-size: 1.6rem;
+  font-weight: 80;
+  color: white;
+}
+
+/*hamburger*/
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #c2185b;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links {
+    transition: all 0.3s ease-in-out;
+  }  
+}
+
+/*Latest Section*/
+.latest {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.latest h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.latest-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.post-card {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.post-card img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  height: 160px;
+}
+
+.post-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e91e63;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+

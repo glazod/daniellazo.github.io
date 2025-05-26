@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automation | Daniel Lazo</title>
+  <link rel="stylesheet" href="_style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Automation</h2>
+      <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+    </div>
+    <ul class="post-list" id="automation-posts"></ul>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+    <div class="top-nav">
+      <a href="../index.html" class="back-link">← Back to Home</a>
+    </div>    
+    <section class="banner" id="rpa-banner">
+      <div class="overlay">
+        <h1 id="banner-title">Loading...</h1>
+      </div>
+    </section>    
+
+    <article class="post-body">
+      <p>
+        Welcome to the Automation section. This featured article explains how I use Power Automate
+        and Power Apps to reduce manual reporting processes, eliminate repetitive email tasks, and integrate approvals seamlessly with Outlook and Teams.
+      </p>
+      <p>
+        This home page acts like the full article page — giving visitors immediate value — and the left sidebar helps navigate to other posts.
+      </p>
+    </article>
+  </main>
+
+  <script src="_home.js"></script>
+  <script>
+    renderPosts(rpaPosts, "automation-posts", "rpa-content");
+    loadLatestPostHero(rpaPosts, "rpa-banner", "banner-title");
+  </script>
+</body>
+</html>
