@@ -29,7 +29,7 @@ h2::selection {
 
 .btn-primary {
   background: var(--primary-color);
-  color: #000000;
+  color: #ffffff;
 }
 
 .btn-secondary {
@@ -88,11 +88,11 @@ h2::selection {
 
 .content-text {
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .content-text h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1.2;
   transition: 0.2s ease-in-out;
 }
@@ -136,38 +136,38 @@ h2::selection {
 
 /* project 1 */
 .card:nth-child(1) {
-  background: url(../assets/project/project-one.png) center center/cover;
+  background: url(../assets/project/project-one-new.png) center center/cover;
 }
 
 /* Project 2 */
 .card:nth-child(2) {
-  background: url(../assets/project/project-two.png) center center/cover;
+  background: url(../assets/project/project-two-new.png) center center/cover;
 }
 
 /* Project 3 */
 .card:nth-child(3) {
-  background: url(../assets/project/project-three.png) center center/cover;
+  background: url(../assets/project/project-three-new.png) center center/cover;
 }
 
 /* Project 4 */
 .card:nth-child(4) {
-  background: url(../assets/project/project-four.png) center center/cover;
+  background: url(../assets/project/project-four-new.png) center center/cover;
 }
 
 /* Project 5 */
 .card:nth-child(5) {
-  background: url(../assets/project/project-five.png) center center/cover;
+  background: url(../assets/project/project-five-new.png) center center/cover;
 }
 
 /* Project 6 */
 .card:nth-child(6) {
-  background: url(../assets/project/project-six.png) center center/cover;
+  background: url(../assets/project/project-six-new.png) center center/cover;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
   .header-container {
-    margin-top: 7rem;
+    margin-top: 5rem;
     text-align: center;
   }
 

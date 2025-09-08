@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lazo - AuditBoard Aging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0; /* remove default body margin */
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+    max-width: 960px;
+    }
+  }
+
+    h2 {
+      margin-top: 1.5rem;   /* or whatever fits your design */
+      margin-bottom: 0.5rem; /* tighten gap before <p> */
+    }
+
+    p {
+      margin-top: 0;        /* remove default top margin */
+      margin-bottom: 1rem;  /* keep some spacing below */
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      margin-bottom: 0.2rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .toc ul {
+      padding-left: 1.5rem;
+    }
+    .toc a {
+      text-decoration: none;
+      color: #3498db;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>AuditBoard Issue Aging</h1>
+  <div class="meta">
+    <strong>Developed:</strong> 2023<br>
+    <strong>Last Updated:</strong> Q1 2025<br>
+    <strong>Annual time Saved:</strong> ~1,600 hours<br>
+    <strong>Annual Cost Savings:</strong> ~48,000 USD
+  </div>
+
+  <section class="toc">
+    <h2>📑 Table of Contents</h2>
+    <ul>
+      <li><a href="#system-overview">1. System Overview</a></li>
+      <li><a href="#problem-statement">2. Problem Statement</a></li>
+      <li><a href="#expected-outcome">3. Expected Outcome</a></li>
+      <li><a href="#key-challenges">4. Key Challenges</a></li>
+      <li><a href="#solution-architecture">5. Solution Architecture</a></li>
+      <li><a href="#development">6. Development</a></li>
+      <li><a href="#results">7. Results</a></li>
+    </ul>
+  </section>
+
+  <section id="system-overview">
+    <h2>System Overview</h2>
+    <p>AuditBoard is a cloud ERP used by Controllership and Internal Audit to track issues raised from SOX and Audit reviews. </p>
+  <section id="problem-statement">
+    <h2>Problem Statement</h2>
+    <p>Controllers have limited visibility into open overdue issues.</p>
+  </section>
+
+  <section id="expected-outcome">
+    <h2>Expected Outcome</h2>
+    <p>Controllers are able to track aged overdue issues by aging bucket and segment.</p>
+  </section>
+
+  <section id="key-challenges">
+    <h2>Key Challenges</h2>
+    <ul>
+        <li>Connection to database limited to DirectQuery mode</li>
+        <li>Inability to create SQL views or transform data before ingestion</li>
+        <li>No data dictionaries or data catalog available for reference</li>
+        <li>Tight five-week timeline with 1 FTE / 100 available development hours</li>
+        <li>Aging calculation and allocation buckets requires pre-alignment from the business</li>
+    </ul>
+  </section>
+
+  <section id="solution-architecture">
+    <h2>Solution Architecture</h2>
+    <img src="project/HFM_flowchart.png" alt="HFM Flowchart" width="2048" height="2048">
+  </section>
+
+  <section id="development">
+    <h2>Development</h2>
+    <p>
+      Development started with data exploration and business logic understanding. A data catalog was created to map fields from the system user interface to fields from the database. Data from various tables was extracted into Power Query and transformed as much as possible within the Direct Query constraints. Data loaded into the Power BI model were mapped into a star schema with one to many connections to allow for faster processing times. DAX measures were developed for calculations that could not be performed in Power Query.
+    </p>
+    <ul>
+      <li>Issue aging = Today’s date – Issue Action Plan’s Due Date</li>
+      In cases where 1 issue has more than one action plan, the latest due date is taken.<br>
+      e.g., Issue 5065 with Action Plan 1's due date of 5 Apr and Action Plan 2's due date of 7 Aug would compare today's date to 7 Aug for the issue aging. If today's date is 10 Aug, the issue is aged by 3 days.
+    </ul>
+    <p>
+      UAT took place between weeks 3 and 5, with user feedback resulting in the creation of a new field to bucket issues into -- instead of segment, a 'remediation responsibility' field was created to capture one responsible party per issue. Prior to this, ownership for one issue could be split among segments affected by that issue.
+    </p>
+    
+    
+ </section>
+
+  <section id="results">
+  <h2>Results</h2>
+  <iframe title="Portfolio Dashboard" width="100%" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiOTc5MDc3OWItZjVkYS00MGEwLTllMTctNGMzNGZjYmFhZjIwIiwidCI6Ijg1Y2QwYjM5LTMzMGMtNDQ4Ny04M2FkLTUzOGRiYTA4YTgxYyIsImMiOjJ9" frameborder="0" allowFullScreen="true"></iframe>
+  </section>
+ </section> 
+
+</div>
+</body>
+</html>

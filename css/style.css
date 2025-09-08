@@ -9,8 +9,8 @@
 /* variables */
 :root {
   /* Colors */
-  --primary-color: #217346;   /* Excel green */
-  --secondary-color: #1e5d38; /* Slightly lighter/darker green for contrast */
+  --primary-color: #0A4D4E;   /* Excel green */
+  --secondary-color: #1f6869; /* Slightly lighter/darker green for contrast */
   --bg-primary: #ffffff;
   --text-color: #222222;
   --text-color-two: #ffffff;
@@ -143,7 +143,7 @@ body {
 .profile-image {
   width: 150px;
   border-radius: 50%;
-  animation: bounce 1s infinite alternate;
+  animation: bounce 2s infinite alternate;
 }
 
 @keyframes bounce {
@@ -160,7 +160,7 @@ body {
   width: 100%;
   height: 2px;
   background-color: var(--card-background);
-  margin: 5.5rem 0;
+  margin: 2rem 0;
 }
 /* Projects */
 #projects {
