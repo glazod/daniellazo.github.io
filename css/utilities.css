@@ -111,6 +111,7 @@ h2::selection {
   border-radius: 5px;
   transition: 0.4s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 
 .card a {
@@ -174,4 +175,14 @@ h2::selection {
   .content-text h2 {
     font-size: 2.5rem;
   }
+}
+
+.card-link {
+  position: absolute;
+  inset: 0;        /* makes it cover the entire card */
+}
+
+.project-info {
+  position: relative;
+  z-index: 2;      /* ensures text sits above clickable layer */
 }
