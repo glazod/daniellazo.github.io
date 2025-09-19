@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lazo - AuditBoard Aging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0; /* remove default body margin */
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+    max-width: 960px;
+    }
+  }
+
+    h2 {
+      margin-top: 1.5rem;   /* or whatever fits your design */
+      margin-bottom: 0.5rem; /* tighten gap before <p> */
+    }
+
+    p {
+      margin-top: 0;        /* remove default top margin */
+      margin-bottom: 1rem;  /* keep some spacing below */
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      margin-bottom: 0.2rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .toc ul {
+      padding-left: 1.5rem;
+    }
+    .toc a {
+      text-decoration: none;
+      color: #3498db;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>HFM Financials</h1>
+  <div class="meta">
+    <strong>Developed:</strong> TBD<br>
+    <strong>Last Updated:</strong> TBD<br>
+    <strong>Annual time Saved:</strong> TBD<br>
+    <strong>Annual Cost Savings:</strong> TBD
+  </div>
+
+  <section class="toc">
+    <h2>📑 Table of Contents</h2>
+    <ul>
+      <li><a href="#system-overview">1. System Overview</a></li>
+      <li><a href="#problem-statement">2. Problem Statement</a></li>
+      <li><a href="#expected-outcome">3. Expected Outcome</a></li>
+      <li><a href="#key-challenges">4. Key Challenges</a></li>
+      <li><a href="#solution-architecture">5. Solution Architecture</a></li>
+      <li><a href="#development">6. Development</a></li>
+      
+    </ul>
+  </section>
+
+  <section id="system-overview">
+    <h2>System Overview</h2>
+    <p>Hyperion Financial Management is a product by Oracle that is used to report on actuals.
+The system is accessed by users mostly via Excel, where an add-on called SmartView
+allows for retrieval of data from the system.</p>
+
+  <section id="problem-statement">
+    <h2>Problem Statement</h2>
+    <p>SmartView retrieves can take a long time to load data. Actuals packages are not
+standardized. Teams who wish to get a full view of the business do not have the right
+tools at their disposal.</p>
+  </section>
+
+  <section id="expected-outcome">
+    <h2>Expected Outcome</h2>
+    <p>A dashboard that standardizes reporting, and a dashboard that makes the data
+extraction process much easier. Self service analytics.</p>
+  </section>
+
+  <section id="key-challenges">
+    <h2>Key Challenges</h2>
+    <p>Dashboard cannot tap into an Excel SmartView retrieve. Hierarchy structure for morethan 2,000 legal entities is quite complex. To retrieve data, the user must provide values for eleven parameters. Data is then
+retrieved via a formula that points to the parameters.
+[example of formula and how it maps to the parameters, drawn; parameters are: entity,
+account, period, year, view, custom1, custom2, custom3, custom4, value, scenario, icp)
+    <ul>
+        <li>Example formula:<br>
+=ROUND(HsGetValue(INPUT!$B$17,&quot;Entity#&quot;&amp;$A$5&amp;&quot;;Scenario#&quot;&amp;AA$5&amp;&quot;;Period#&quot;&amp;
+AA$11&amp;&quot;;Year#&quot;&amp;AA$10&amp;&quot;;View#&quot;&amp;AA$6&amp;&quot;;Account#&quot;&amp;$A13&amp;&quot;;Custom1#&quot;&amp;$C13&amp;&quot;;Cu
+stom2#&quot;&amp;$D13&amp;&quot;;Custom3#&quot;&amp;$E13&amp;&quot;;Custom4#&quot;&amp;$F13&amp;&quot;;ICP#&quot;&amp;$B13&amp;&quot;;Value#&quot;&amp;$A
+$4&amp;&quot;;&quot;)/$C$1,0)/1000</p></li>
+    </ul>
+  </section>
+
+   <section id="solution-architecture">
+    <h2>Solution Architecture</h2>
+    <img src="./assets/project/HFM_flowchart.png" alt="HFM Flowchart" width="1000" height="1000">
+  </section>
+
+  <section id="development">
+    <h2>Development</h2>
+    <p>Hierarchy for entities and accounts was flattened via two dataflows, then connected to a bulk extract of the system that pulls in [Eliminations]. A complex but robust logic was applied to take into account Eliminations at the parent level and aggregate up in the hierarchy ensuring that numbers are not double counted.</p>
+    <p> 
+ </section>
+
+</div>
+</body>
+</html>
