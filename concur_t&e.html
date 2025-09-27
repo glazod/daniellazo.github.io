@@ -37,6 +37,7 @@
       color: #2c3e50;
     }
     h1 {
+      margin-top: 5rem;
       margin-bottom: 0.2rem;
     }
     .meta {
@@ -58,8 +59,50 @@
       margin-top: 1rem;
     }
   </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
 </head>
+
 <body>
+  <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h4 id="logo">
+            <a href="https://daniellazo.com"
+              ><img src="./assets/logo.png" alt="Your Logo"
+            /></a>
+          </h1>
+          <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li><a class="nav-link" href="#projects">PROJECTS</a></li>
+            <!--<li><a class="nav-link" href="#blog">BLOG</a></li>-->
+            <li><a class="nav-link" href="#contact">CONTACT</a></li>
+            <li>
+              <a
+                class="nav-link btn btn-primary"
+                href="./assets/lazo-daniel-resume.pdf"
+                >RESUME <i class="fas fa-arrow-right"></i
+              ></a>
+            </li>
+            <!-- Toggle switch -->
+            <div class="theme-switch">
+              <input type="checkbox" id="switch" />
+              <label class="toggle-icons" for="switch">
+                <img class="moon" src="assets/moon.svg" />
+                <img class="sun" src="assets/sun.svg" />
+              </label>
+            </div>
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+      
   <div class="container">
   <h1>Concur T&E</h1>
   <div class="meta">
