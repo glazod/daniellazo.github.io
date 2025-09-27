@@ -5,7 +5,7 @@
   <title>Lazo - AuditBoard Aging</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-  body {
+    body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
@@ -37,6 +37,7 @@
       color: #2c3e50;
     }
     h1 {
+      margin-top: 5rem;
       margin-bottom: 0.2rem;
     }
     .meta {
@@ -58,8 +59,42 @@
       margin-top: 1rem;
     }
   </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
 </head>
+
 <body>
+  <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h4 id="logo">
+            <a href="https://daniellazo.com"
+              ><img src="./assets/logo.png" alt="Your Logo"
+            /></a>
+          </h1>
+        <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li><a class="nav-link" href="https://daniellazo.com/#projects">Projects</a></li>
+            <!--<li><a class="nav-link" href="#blog">BLOG</a></li>-->
+            <li><a class="nav-link" href="https://linkedin.com/in/lazodaniel">LinkedIn</a></li>
+            <li>
+              <a
+                class="nav-link btn btn-primary"
+                href="./assets/lazo-daniel-resume.pdf"
+                >Resume <i class="fas fa-arrow-right"></i
+              ></a>
+            </li>
+        
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
   <div class="container">
   <h1>HFM Financials</h1>
   <div class="meta">
@@ -90,9 +125,7 @@ allows for retrieval of data from the system.</p>
 
   <section id="problem-statement">
     <h2>Problem Statement</h2>
-    <p>SmartView retrieves can take a long time to load data. Actuals packages are not
-standardized. Teams who wish to get a full view of the business do not have the right
-tools at their disposal.</p>
+    <p>As a Finance user, you retrieve actual and forecast data from the system via an Excel add-on, called SmartView retrieves, or directly in HFM online. Retrieving data can take a long time to load, depending on how heavy your retrieve is. Once the data is retrieved, several calculations must be applied.</p>
   </section>
 
   <section id="expected-outcome">
