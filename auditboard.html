@@ -150,11 +150,19 @@
   <section id="development">
     <h2>Development</h2>
     <p>
-      Development started with data exploration and business logic understanding. A data catalog was created to map fields from the system user interface to fields from the database. Data from various tables was extracted into Power Query and transformed as much as possible within the Direct Query constraints. Data loaded into the Power BI model were mapped into a star schema with one to many connections to allow for faster processing times. DAX measures were developed for calculations that could not be performed in Power Query.
+      During development, it is crucial to understand the fields we want from the system and how the values from these fields are populated by the users. Not understanding this can lead to issues over time, mostly centered around broken logic and calculations.
+      <br>
+      <br>
+      One such example are calculations built around fields that welcome any type of user input instead of providing a fixed set of options from which to select, or fields that do provide a set of fixed options and which continue to grow over time for the developer to find out they should have foreseen issues arising from this.
+      <ul>Example: you might create a calculated column named Region that groups entities A, B, C into region North America, and everything else into region International. If a few years pass and a new North America entity is introduced to the system, what happens then? You have to go back to your model and update the formula, which is far from ideal. What if the Region affects other calculations too? Say you have a logic that applies a certain multiplier on North American sales, and another multiplier for International sales. Then what? You have effectively created a model that is not sustainable.</ul>
+      <br>
+      Development for the AuditBoard dashboard started with data exploration and business logic understanding. A data catalog was created to map fields from the system user interface to fields from the database. Data from various tables was extracted into Power Query and transformed as much as possible within the Direct Query constraints. Data loaded into the Power BI model were mapped into a star schema with one to many connections to allow for faster processing times. DAX measures were developed for calculations that could not be performed in Power Query.
     </p>
     <ul>
       <li>Issue aging = Today’s date – Issue Action Plan’s Due Date</li>
-      In cases where 1 issue has more than one action plan, the latest due date is taken.<br>
+      In cases where 1 issue has more than one action plan, the latest due date is taken.
+      <br>
+      <br>
       e.g., Issue 5065 with Action Plan 1's due date of 5 Apr and Action Plan 2's due date of 7 Aug would compare today's date to 7 Aug for the issue aging. If today's date is 10 Aug, the issue is aged by 3 days.
     </ul>
     <p>

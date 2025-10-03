@@ -1,0 +1,53 @@
+Ariba Indirect Spend
+Executive Summary
+The Ariba Indirect Spend analytics solution leverages SAP Ariba and integrated data sources to provide comprehensive visibility into indirect procurement activities. This guide outlines the system architecture, key challenges, and the impact of deploying the analytics dashboard, supporting improved compliance, transparency, and decision-making for internal audit and procurement teams.
+
+System Overview
+SAP Ariba serves as the core procurement platform, managing indirect spend such as office supplies, IT services, and marketing. The analytics dashboard extracts and integrates data from multiple sources, including Snowflake, Ariba ERP, and custom reports, to deliver granular insights into purchase requisitions, purchase orders, and invoices. Data is refreshed monthly, with automated and manual extraction processes ensuring up-to-date information.
+
+Problem Statement
+Organizations often struggle with limited visibility and control over indirect spend, leading to compliance risks, duplicate payments, and inefficiencies. Manual processes and fragmented data sources further complicate efforts to monitor procurement activities and enforce policies.
+
+Expected Outcome
+The deployment of the Ariba Indirect Spend dashboard is expected to:
+•	Enhance transparency into procurement transactions.
+•	Identify compliance gaps, such as non-PO purchases and split orders.
+•	Support audit and business teams in detecting duplicate payments and policy deviations.
+•	Enable data-driven decision-making through interactive visualizations and exportable reports.
+
+Key Challenges
+•	Data Integration: Combining data from Snowflake, Ariba ERP, and manual extracts, especially for fields not present in all sources (e.g., Invoice Date).
+•	Granularity: Ensuring line-item level detail for accurate analysis.
+•	Data Model Complexity: Managing many-to-many relationships between tables, which can impact performance and accuracy.
+•	Manual Processes: Reliance on manual extraction for certain data elements introduces risk of delays and errors.
+•	User Adoption: Ensuring users understand dashboard features and can navigate, filter, and export data effectively.
+
+Solution Architecture
+•	Data Sources: Snowflake tables, Ariba ERP UI, custom Invoice Date reports.
+•	Data Extraction: Automated refresh for Snowflake data via Power BI; manual extraction for Ariba ERP data.
+•	Transformations: Conducted in Power Query, focusing on removing unnecessary fields and optimizing relationships.
+•	Data Model: Main Invoice and PO tables linked via many-to-many relationships on PO Id; supplementary tables (COM, Invoice Date Report) connected via one-to-many relationships.
+•	Dashboard Access: Hosted in the Internal Audit WHQ PUO Power BI workspace, with member access for custom visual creation.
+
+Development
+•	Report Pages: Multiple dashboards provide insights into PO and invoice populations, non-PO purchases, PRs under $1,000, duplicate transactions, split POs, payment terms, and keyword search capabilities.
+•	Interactivity: Users can filter, drill down, highlight, export data, and reset views. “Info on this page” buttons guide navigation.
+•	Optimization: Ongoing efforts to refine data model relationships and improve performance.
+
+Impact
+•	Compliance: Identification of non-compliant transactions and policy deviations.
+•	Efficiency: Streamlined audit processes and reduced manual effort.
+•	Transparency: Improved visibility into procurement activities and spend patterns.
+•	User Empowerment: Self-service analytics and export capabilities for business users.
+
+Next Steps
+•	Continue optimizing data model relationships for scalability and performance.
+•	Automate manual extraction processes where possible.
+•	Expand dashboard features based on user feedback.
+•	Provide ongoing training and support to maximize user adoption.
+•	Monitor and enhance data refresh cadence to ensure timely insights.
+
+
+
+
+
