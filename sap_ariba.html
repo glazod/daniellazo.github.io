@@ -1,51 +1,206 @@
-Ariba Indirect Spend
-Executive Summary
-The Ariba Indirect Spend analytics solution leverages SAP Ariba and integrated data sources to provide comprehensive visibility into indirect procurement activities. This guide outlines the system architecture, key challenges, and the impact of deploying the analytics dashboard, supporting improved compliance, transparency, and decision-making for internal audit and procurement teams.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lazo - SAP Ariba</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0; /* remove default body margin */
+  }
 
-System Overview
-SAP Ariba serves as the core procurement platform, managing indirect spend such as office supplies, IT services, and marketing. The analytics dashboard extracts and integrates data from multiple sources, including Snowflake, Ariba ERP, and custom reports, to deliver granular insights into purchase requisitions, purchase orders, and invoices. Data is refreshed monthly, with automated and manual extraction processes ensuring up-to-date information.
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+  }
 
-Problem Statement
-Organizations often struggle with limited visibility and control over indirect spend, leading to compliance risks, duplicate payments, and inefficiencies. Manual processes and fragmented data sources further complicate efforts to monitor procurement activities and enforce policies.
+  @media (min-width: 768px) {
+    .container {
+    max-width: 960px;
+    }
+  }
 
-Expected Outcome
-The deployment of the Ariba Indirect Spend dashboard is expected to:
-•	Enhance transparency into procurement transactions.
-•	Identify compliance gaps, such as non-PO purchases and split orders.
-•	Support audit and business teams in detecting duplicate payments and policy deviations.
-•	Enable data-driven decision-making through interactive visualizations and exportable reports.
+    h2 {
+      margin-top: 1.5rem;   /* or whatever fits your design */
+      margin-bottom: 0.5rem; /* tighten gap before <p> */
+    }
 
-Key Challenges
-•	Data Integration: Combining data from Snowflake, Ariba ERP, and manual extracts, especially for fields not present in all sources (e.g., Invoice Date).
-•	Granularity: Ensuring line-item level detail for accurate analysis.
-•	Data Model Complexity: Managing many-to-many relationships between tables, which can impact performance and accuracy.
-•	Manual Processes: Reliance on manual extraction for certain data elements introduces risk of delays and errors.
-•	User Adoption: Ensuring users understand dashboard features and can navigate, filter, and export data effectively.
+    p {
+      margin-top: 0;        /* remove default top margin */
+      margin-bottom: 1rem;  /* keep some spacing below */
+    }
 
-Solution Architecture
-•	Data Sources: Snowflake tables, Ariba ERP UI, custom Invoice Date reports.
-•	Data Extraction: Automated refresh for Snowflake data via Power BI; manual extraction for Ariba ERP data.
-•	Transformations: Conducted in Power Query, focusing on removing unnecessary fields and optimizing relationships.
-•	Data Model: Main Invoice and PO tables linked via many-to-many relationships on PO Id; supplementary tables (COM, Invoice Date Report) connected via one-to-many relationships.
-•	Dashboard Access: Hosted in the Internal Audit WHQ PUO Power BI workspace, with member access for custom visual creation.
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      margin-top: 5rem;
+      margin-bottom: 0.2rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .toc ul {
+      padding-left: 1.5rem;
+    }
+    .toc a {
+      text-decoration: none;
+      color: #3498db;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-top: 1rem;
+    }
+  </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+</head>
 
-Development
-•	Report Pages: Multiple dashboards provide insights into PO and invoice populations, non-PO purchases, PRs under $1,000, duplicate transactions, split POs, payment terms, and keyword search capabilities.
-•	Interactivity: Users can filter, drill down, highlight, export data, and reset views. “Info on this page” buttons guide navigation.
-•	Optimization: Ongoing efforts to refine data model relationships and improve performance.
+<body>
+  <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h4 id="logo">
+            <a href="https://daniellazo.com"
+              ><img src="./assets/logo.png" alt="Your Logo"
+            /></a>
+          </h1>
+        <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li><a class="nav-link" href="https://daniellazo.com/#projects">Projects</a></li>
+            <!--<li><a class="nav-link" href="#blog">BLOG</a></li>-->
+            <li><a class="nav-link" href="https://linkedin.com/in/lazodaniel">LinkedIn</a></li>
+            <li>
+              <a
+                class="nav-link btn btn-primary"
+                href="./assets/lazo-daniel-resume.pdf"
+                >Resume <i class="fas fa-arrow-right"></i
+              ></a>
+            </li>
+        
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
 
-Impact
-•	Compliance: Identification of non-compliant transactions and policy deviations.
-•	Efficiency: Streamlined audit processes and reduced manual effort.
-•	Transparency: Improved visibility into procurement activities and spend patterns.
-•	User Empowerment: Self-service analytics and export capabilities for business users.
+  <div class="container">
+  <h1>SAP Ariba Indirect Spend</h1>
+  <div class="meta">
+    <strong>Developed:</strong> 2023<br>
+    <strong>Last Updated:</strong> 2025<br>
+    <strong>Annual time Saved:</strong> TBD<br>
+    <strong>Annual Cost Savings:</strong> TBD
+  </div>
 
-Next Steps
-•	Continue optimizing data model relationships for scalability and performance.
-•	Automate manual extraction processes where possible.
-•	Expand dashboard features based on user feedback.
-•	Provide ongoing training and support to maximize user adoption.
-•	Monitor and enhance data refresh cadence to ensure timely insights.
+  <section class="toc">
+    <h2>📑 Table of Contents</h2>
+    <ul>
+      <li><a href="#executive-summary">1. Executive Summary</a></li>
+    <li><a href="#system-overview">2. System Overview</a></li>
+      <li><a href="#problem-statement">3. Problem Statement</a></li>
+      <li><a href="#expected-outcome">4. Expected Outcome</a></li>
+      <li><a href="#key-challenges">5. Key Challenges</a></li>
+      <li><a href="#solution-architecture">6. Solution Architecture</a></li>
+      <li><a href="#development">7. Development</a></li>
+      <li><a href="#impact">8. Impact</a></li>
+      <li><a href="#next-steps">9. Next Steps</a></li>
+      
+    </ul>
+  </section>
+
+  <section id="executive-summary">
+    <h2>Executive Summary</h2>
+    <p>The Ariba Indirect Spend analytics solution leverages SAP Ariba and integrated data sources to provide comprehensive visibility into indirect procurement activities. This guide outlines the system architecture, key challenges, and the impact of deploying the analytics dashboard, supporting improved compliance, transparency, and decision-making for internal audit and procurement teams.</p>
+
+  <section id="system-overview">
+    <h2>System Overview</h2>
+    <p>SAP Ariba serves as the core procurement platform, managing indirect spend such as office supplies, IT services, and marketing. The analytics dashboard extracts and integrates data from multiple sources, including Snowflake, Ariba ERP, and custom reports, to deliver granular insights into purchase requisitions, purchase orders, and invoices. Data is refreshed monthly, with automated and manual extraction processes ensuring up-to-date information.</p>
+
+  <section id="problem-statement">
+    <h2>Problem Statement</h2>
+    <p>Organizations often struggle with limited visibility and control over indirect spend, leading to compliance risks, duplicate payments, and inefficiencies. Manual processes and fragmented data sources further complicate efforts to monitor procurement activities and enforce policies.</p>
+  </section>
+
+  <section id="expected-outcome">
+    <h2>Expected Outcome</h2>
+    <p>The deployment of the Ariba Indirect Spend dashboard is expected to:
+        <ul>
+        <li>• Enhance transparency into procurement transactions.</li>
+        <li>• Identify compliance gaps, such as non-PO purchases and split orders.</li>
+        <li>• Support audit and business teams in detecting duplicate payments and policy deviations.</li>
+        <li>• Enable data-driven decision-making through interactive visualizations and exportable reports.</li>
+        </ul>
+    </p>
+  </section>
+
+  <section id="key-challenges">
+    <h2>Key Challenges</h2>
+    <ul>
+        <li>• Data Integration: Combining data from Snowflake, Ariba ERP, and manual extracts, especially for fields not present in all sources (e.g., Invoice Date).</li>
+        <li>• Granularity: Ensuring line-item level detail for accurate analysis.</li>
+        <li>• Data Model Complexity: Managing many-to-many relationships between tables, which can impact performance and accuracy.</li>
+        <li>• Manual Processes: Reliance on manual extraction for certain data elements introduces risk of delays and errors.</li>
+        <li>• User Adoption: Ensuring users understand dashboard features and can navigate, filter, and export data effectively.</li>
+    </ul>
+  </section>
+
+  <section id="solution-architecture">
+    <h2>Solution Architecture</h2>
+    [picture]
+  </section>
+
+  <section id="development">
+    <h2>Development</h2>
+    <p></p>
+    <ul>
+      <li>•	Report Pages: Multiple dashboards provide insights into PO and invoice populations, non-PO purchases, PRs under $1,000, duplicate transactions, split POs, payment terms, and keyword search capabilities.</li>
+        •Interactivity: Users can filter, drill down, highlight, export data, and reset views. “Info on this page” buttons guide navigation.
+        •	Optimization: Ongoing efforts to refine data model relationships and improve performance.</li>
+    </ul>
+    <p> 
+ </section>
+
+ <section id="impact">
+    <h2>Impact</h2>
+    <p></p>
+    <ul>
+    <li>•	Compliance: Identification of non-compliant transactions and policy deviations.</li>
+    <li>Efficiency: Streamlined audit processes and reduced manual effort.</li>
+    <li>• Transparency: Improved visibility into procurement activities and spend patterns.</li>
+    <li>• User Empowerment: Self-service analytics and export capabilities for business users.</li>
+    </ul>
+    <p> 
+ </section>
+
+ <section id="next-steps">
+    <h2>Next Steps</h2>
+    <p></p>
+    <ul>
+    <li>• Continue optimizing data model relationships for scalability and performance.</li>
+    <li>• Automate manual extraction processes where possible.</li>
+    <li>• Expand dashboard features based on user feedback.</li>
+    <li>• Provide ongoing training and support to maximize user adoption.</li>
+    <li>• Monitor and enhance data refresh cadence to ensure timely insights.</li>
+    </ul>
+    <p> 
+ </section>
+
+</div>
+</body>
+</html>
 
 
 
