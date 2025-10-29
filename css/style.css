@@ -332,3 +332,11 @@ body {
     width: 80%;
   }
 }
+
+#solution-architecture img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* centers it horizontally */
+  border-radius: 8px; /* optional – for a clean rounded look */
+}

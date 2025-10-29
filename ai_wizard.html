@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lazo - ServiceNow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0; /* remove default body margin */
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+    max-width: 960px;
+    }
+  }
+
+    h2 {
+      margin-top: 1.5rem;   /* or whatever fits your design */
+      margin-bottom: 0.5rem; /* tighten gap before <p> */
+    }
+
+    p {
+      margin-top: 0;        /* remove default top margin */
+      margin-bottom: 1rem;  /* keep some spacing below */
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      margin-top: 5rem;
+      margin-bottom: 0.2rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .toc ul {
+      padding-left: 1.5rem;
+    }
+    .toc a {
+      text-decoration: none;
+      color: #3498db;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-top: 1rem;
+    }
+  </style>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h4 id="logo">
+            <a href="https://daniellazo.com"
+              ><img src="./assets/logo.png" alt="Your Logo"
+            /></a>
+          </h1>
+        <!-- Navbar links -->
+          <ul class="nav-menu">
+            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link" href="https://daniellazo.com/#projects">Projects</a></li>
+            <!--<li><a class="nav-link" href="#blog">BLOG</a></li>-->
+            <li><a class="nav-link" href="https://linkedin.com/in/lazodaniel">LinkedIn</a></li>
+            <li>
+              <a
+                class="nav-link btn btn-primary"
+                href="./assets/lazo-daniel-resume.pdf"
+                >Resume <i class="fas fa-arrow-right"></i
+              ></a>
+            </li>
+        
+            <!-- Hamburger menu -->
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+
+  <div class="container">
+  <h1>Internal Audit Walkthrough Wizard</h1>
+  <div class="meta">
+    <strong>Developed:</strong> 2025<br>
+    <strong>Last Updated:</strong> 2025<br>
+    <strong>Annual time Saved:</strong> TBD<br>
+    <strong>Annual Cost Savings:</strong> TBD
+  </div>
+
+  <section class="toc">
+    <h2>📑 Table of Contents</h2>
+    <ul>
+      <li><a href="#executive-summary">1. Executive Summary</a></li>
+    <li><a href="#system-overview">2. System Overview</a></li>
+      <li><a href="#problem-statement">3. Problem Statement</a></li>
+      <li><a href="#expected-outcome">4. Expected Outcome</a></li>
+      <li><a href="#key-challenges">5. Key Challenges</a></li>
+      <li><a href="#solution-architecture">6. Solution Architecture</a></li>
+      <li><a href="#development">7. Development</a></li>
+      <li><a href="#impact">8. Impact</a></li>
+      <li><a href="#next-steps">9. Next Steps</a></li>
+      
+    </ul>
+  </section>
+
+  <section id="executive-summary">
+    <h2>Executive Summary</h2>
+    <p>The Internal Audit Walkthrough Wizard is an AI agent accesible via Teams that provides the users with guidance on upcoming walkthrouhgs, pulls information on applicable controls, and provides answers on applicable internal policies.</p>
+
+  <section id="system-overview">
+    <h2>System Overview</h2>
+    <p>The agent taps into a SharePoint site for policies and uses RPA flows to filter the latest SOX Controls captured in an online Excel file. It uses its AI capabilities to come up with possible questions based on the controls and policies provided to the auditor.</p>
+
+  <section id="problem-statement">
+    <h2>Problem Statement</h2>
+    <p>Let's assume here that you are a Finance and Operations staff auditor. Every month you are assigned to a new entity to audit, and 3 - 5 areas to audit for that entity. For each of these areas you have to determine the controls to audit, applicable policies, and quetions to ask during the walkthroughs. This can take quite some time in administrative work. It's tedious and robs you from time better dedicated to preparing for the audit and analysis of the entity.</p>
+  </section>
+
+  <section id="expected-outcome">
+    <h2>Expected Outcome</h2>
+    <p>An agent that provides the staff auditor with applicable controls, risks, policies, and questions for an upcoming walkthrough of an area in scope, within seconds.</p>
+  </section>
+
+  <section id="key-challenges">
+    <h2>Key Challenges</h2>
+    <ul>
+        <li>The main challenge here from a technical standpoint is how much an agent can be trusted to output consistently correct answers. To avoid this, the user was provided with a static list of areas to select from, and RPA was then used to look up the controls that correspond to that area, leaving the agent to come up with the possible questions and ensuring that the tool was consisteng in its output of applicable controls.</li>
+    </ul>
+  </section>
+
+  <section id="solution-architecture">
+    <h2>Solution Architecture</h2>
+    <img src="" alt="">
+  </section>
+
+  <section id="development">
+    <h2>Development</h2>
+    <p>Development took 6 weeks and by the end the users were able to interact with the agent via Teams.</p>
+    <ul>
+      <li></li>
+    </ul>
+    <p> 
+ </section>
+
+ <section id="impact">
+  <h2>Impact</h2>
+  <p>Auditors started leveraging the solution right away, saving a approximately 30 minutes per area in scope.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p> 
+</section>
+
+<section id="next-steps">
+  <h2>Next Steps</h2>
+  <p>As agentic solutions become more powerful, the Walkthrough Wizard will more than likely be migrated to a CoPilot Web solution that works out of a more robust prompt.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p> 
+</section>
+
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
