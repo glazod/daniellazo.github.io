@@ -115,6 +115,7 @@
       <li><a href="#key-challenges">4. Key Challenges</a></li>
       <li><a href="#solution-architecture">5. Solution Architecture</a></li>
       <li><a href="#development">6. Development</a></li>
+      <li><a href="#impact">7. Impact</a></li>
   
     </ul>
   </section>
@@ -149,27 +150,55 @@
   </section>
 
   <section id="development">
-    <h2>Development</h2>
+    <h2>Development Approach</h2>
+  
     <p>
-      During development, it is crucial to understand the fields we want from the system and how the values from these fields are populated by the users. Not understanding this can lead to issues over time, mostly centered around broken logic and calculations.
-      <br>
-      <br>
-      One such example are calculations built around fields that welcome any type of user input instead of providing a fixed set of options from which to select, or fields that do provide a set of fixed options and which continue to grow over time for the developer to find out they should have foreseen issues arising from this.
-      <ul>Example: you might create a calculated column named Region that groups entities A, B, C into region North America, and everything else into region International. If a few years pass and a new North America entity is introduced to the system, what happens then? You have to go back to your model and update the formula, which is far from ideal. What if the Region affects other calculations too? Say you have a logic that applies a certain multiplier on North American sales, and another multiplier for International sales. Then what? You have effectively created a model that is not sustainable.</ul>
-      <br>
-      Development for the AuditBoard dashboard started with data exploration and business logic understanding. A data catalog was created to map fields from the system user interface to fields from the database. Data from various tables was extracted into Power Query and transformed as much as possible within the Direct Query constraints. Data loaded into the Power BI model were mapped into a star schema with one to many connections to allow for faster processing times. DAX measures were developed for calculations that could not be performed in Power Query.
+      Development began with structured data exploration and alignment with business stakeholders to clearly define aging logic, ownership attribution, and reporting expectations. Given the absence of a data catalog and the constraints of DirectQuery mode, establishing semantic clarity across system fields was critical.
     </p>
+  
+    <p>
+      A comprehensive data mapping exercise was conducted to translate user interface terminology into underlying database structures. This resulted in the creation of a functional data dictionary, ensuring consistent interpretation of issue status, due dates, ownership, and remediation progress.
+    </p>
+  
+    <p>
+      The solution architecture prioritized long-term sustainability. Rather than embedding hard-coded groupings or static logic (e.g., entity-to-region mappings), the model was designed to minimize future maintenance as organizational structures evolve. This approach reduced dependency on manual formula updates and preserved downstream calculation integrity.
+    </p>
+  
+    <p>
+      Data transformations were executed within DirectQuery limitations, with Power Query used where feasible and DAX measures developed for calculations requiring dynamic evaluation — including the issue aging logic:
+    </p>
+  
     <ul>
-      <li>Issue aging = Today’s date – Issue Action Plan’s Due Date</li>
-      In cases where 1 issue has more than one action plan, the latest due date is taken.
-      <br>
-      <br>
-      e.g., Issue 5065 with Action Plan 1's due date of 5 Apr and Action Plan 2's due date of 7 Aug would compare today's date to 7 Aug for the issue aging. If today's date is 10 Aug, the issue is aged by 3 days.
+      <li><strong>Issue Aging</strong> = Today’s Date – Latest Action Plan Due Date</li>
     </ul>
+  
     <p>
-      UAT took place between weeks 3 and 5, with user feedback resulting in the creation of a new field to bucket issues into -- instead of segment, a 'remediation responsibility' field was created to capture one responsible party per issue. Prior to this, ownership for one issue could be split among segments affected by that issue.
+      In cases where multiple action plans existed for a single issue, the model dynamically selected the latest due date to ensure accurate aging representation.
     </p>
+  
+    <p>
+      During UAT (Weeks 3–5), stakeholder feedback led to refinement of ownership attribution. A new “Remediation Responsibility” field was introduced to assign clear accountability to a single responsible party per issue, replacing fragmented segment-based ownership and improving governance transparency.
+    </p>
+  
+  </section>
     
+    <section id="impact">
+      <h2>Business Impact</h2>
+    
+      <ul>
+        <li>Saved approximately 1,600 hours annually by eliminating manual issue tracking and reconciliation processes.</li>
+        <li>Generated an estimated ~$48,000 in annual cost savings through automation and standardized reporting.</li>
+        <li>Provided Controllers and Audit leadership with real-time visibility into overdue issues across entities and segments.</li>
+        <li>Standardized aging logic and ownership attribution, reducing ambiguity in remediation accountability.</li>
+        <li>Improved governance by introducing a structured remediation responsibility model, replacing fragmented segment ownership.</li>
+        <li>Established a scalable data model capable of adapting to organizational changes without recurring manual rework.</li>
+      </ul>
+    
+      <p>
+        Beyond time savings, the solution strengthened accountability and transparency across the issue remediation lifecycle — shifting the process from reactive follow-up to proactive oversight.
+      </p>
+    </section>
+
  </section>
 
 </div>

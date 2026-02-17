@@ -108,74 +108,89 @@ body {
   <section class="toc">
     <h2>📑 Table of Contents</h2>
     <ul>
-      <li><a href="#system-overview">1. System Overview</a></li>
-      <li><a href="#problem-statement">2. Problem Statement</a></li>
-      <li><a href="#expected-outcome">3. Expected Outcome</a></li>
-      <li><a href="#key-challenges">4. Key Challenges</a></li>
-      <li><a href="#solution-architecture">5. Solution Architecture</a></li>
-      <li><a href="#development">6. Development</a></li>
-      
+      <li><a href="#problem-statement">1. Problem Statement</a></li>
+      <li><a href="#system-overview">2. System Overview</a></li>
+      <li><a href="#key-challenges">3. Key Challenges</a></li>
+      <li><a href="#solution-architecture">4. Solution Architecture</a></li>
+      <li><a href="#development">5. Development Approach</a></li>
+      <li><a href="#impact">6. Business Impact</a></li>
     </ul>
   </section>
-
-  <section id="system-overview">
-    <h2>System Overview</h2>
-    <p>SAP Concur T&amp;E (Travel &amp; Expense) is a cloud-based solution that automates and
-manages business travel and expense processes for organizations. It is widely used to
-streamline the submission, approval, and auditing of employee travel and expense
-claims.</p>
-
+  
   <section id="problem-statement">
     <h2>Problem Statement</h2>
-    <p>No current mechanism to audit fraud effectively. SAP solution is too expensive.</p>
+  
+    <p>
+      Global Travel & Expense (T&E) activity generates thousands of transactions across employees, regions, and vendors. While SAP Concur streamlines submission and approval workflows, it does not inherently provide a robust, cost-effective mechanism for continuous fraud detection or real-time risk monitoring.
+    </p>
+  
+    <p>
+      For Internal Audit, this meant relying on periodic sampling rather than full-population analytics.  
+      For Global Controllers, it limited proactive visibility into policy compliance and spend trends.  
+      For senior finance leadership, it created potential exposure to fraud, waste, and reputational risk.
+    </p>
+  
+    <p>
+      The organization needed a scalable, continuous monitoring solution that could surface anomalies in real time without incurring the high cost of additional third-party modules.
+    </p>
   </section>
-
-  <section id="expected-outcome">
-    <h2>Expected Outcome</h2>
-    <p>Develop a continuous auditing platform for Travel & Entertainment (T&E) expense data,
-to allow Internal Audit/ Global Controllers to assess T&E activities, identify trends, flag
-anomalies, and tag policy exceptions in real time. Create alerts.
-Develop a powerful tool for detecting fraud, anomalies, and waste in travel and expense
-activities. Each analytic visual is designed to surface specific risk indicators, enabling
-auditors to proactively identify and investigate suspicious behaviors and transactions.
-<ul>
-<li>Creation of a T&E monitoring report will enhance the Internal Audit team’s
-effectiveness and efficiency in auditing T&E expenses</li>
-<li>Ability to detect and prevent fraud, waste, and abuse in the company in real time​</li> <li>Provide insights and utility for improving Travel Audit processes in a targeted and
-risk-based manner</li>
-</ul>
-</p>
+  
+  <section id="system-overview">
+    <h2>System Overview</h2>
+    <p>
+      SAP Concur Travel & Expense is a cloud-based platform used to manage employee travel bookings, expense submissions, approvals, and reimbursements. While effective operationally, reporting capabilities are primarily transactional and not designed for enterprise-level risk analytics across global spend populations.
+    </p>
   </section>
-
+  
   <section id="key-challenges">
     <h2>Key Challenges</h2>
     <ul>
-        <li>High cost to develop. No in-house skillset or access to build a pipeline.</li>
+      <li>- No native, cost-effective solution for advanced fraud analytics and anomaly detection.</li>
+      <li>- Limited in-house pipeline and data engineering capability at project inception.</li>
+      <li>- Global data volume requiring scalable architecture and performance optimization.</li>
+      <li>- Need to balance audit rigor with controller usability.</li>
     </ul>
   </section>
-
+  
   <section id="solution-architecture">
     <h2>Solution Architecture</h2>
-    <img src="./assets/project/concur_flowchart.png" alt="Concur Flowchart" width="1000" height="1000">
+    <p>
+      A centralized data pipeline was developed to extract, model, and transform global T&E data into a governed Power BI analytics environment. The architecture enabled full-population analysis, standardized risk indicators, and dynamic filtering across entities, regions, and employees.
+    </p>
+  
+    <img src="./assets/project/concur_flowchart.png" alt="Concur Solution Architecture Flowchart" width="1000">
   </section>
-
+  
   <section id="development">
-    <h2>Development</h2>
-    <p>Built 14-15 report pages within the full Power BI report that display the necessary analytics desired by the Internal Audit / Global Controller team to
-  continuously monitor global Carrier T&E spend.</p>
+    <h2>Development Approach</h2>
+    <p>
+      A comprehensive Power BI monitoring solution was developed consisting of 14+ analytic report pages tailored for Internal Audit and Global Controllers. Each page was intentionally designed to surface specific risk indicators and behavioral patterns.
+    </p>
+  <p>
     <ul>
-      <li>Vendor overview</li>
-      <li>Money transfer vendors</li>
-      <li>Potential Duplicate Reimbursements</li>
-      <li>Corporate card receipt thresholds</li>
-      <li>Out of pocket thresholds and trends</li>
-      <li>Details by Report and Employee</li>
-      <li>Excessive meals</li>
-      <li>Missing receipts</li>
+      <li>- Vendor spend concentration and outlier detection</li>
+      <li>- Money transfer vendor monitoring</li>
+      <li>- Potential duplicate reimbursements</li>
+      <li>- Corporate card receipt compliance thresholds</li>
+      <li>- Out-of-pocket reimbursement trends</li>
+      <li>- Employee- and report-level drill-through capability</li>
+      <li>- Excessive meal spend analytics</li>
+      <li>- Missing receipt identification</li>
     </ul>
-    <p> 
- </section>
-
-</div>
-</body>
-</html>
+  </P>
+  
+    <p>
+      Automated alerts were integrated to flag high-risk transactions, enabling proactive investigation rather than reactive sampling.
+    </p>
+  </section>
+  
+  <section id="impact">
+    <h2>Business Impact</h2>
+    <ul>
+      <li>- Shifted T&E audit approach from periodic sampling to continuous full-population monitoring.</li>
+      <li>- Improved fraud detection capabilities through standardized risk indicators and anomaly analytics.</li>
+      <li>- Enabled Global Controllers to proactively address policy violations and spend trends.</li>
+      <li>- Reduced reliance on costly third-party audit modules.</li>
+      <li>- Strengthened governance and transparency across global T&E activity.</li>
+    </ul>
+  </section>

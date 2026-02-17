@@ -124,62 +124,89 @@
 
   <section id="executive-summary">
     <h2>Executive Summary</h2>
-    <p>The Internal Audit Walkthrough Wizard is an AI agent accesible via Teams that provides the users with guidance on upcoming walkthrouhgs, pulls information on applicable controls, and provides answers on applicable internal policies.</p>
-
+    <p>
+      The Internal Audit Walkthrough Wizard is an AI-powered assistant deployed within Microsoft Teams to support Finance and Operations auditors during control walkthrough preparation. The solution leverages enterprise policy documentation and SOX control data to generate structured, contextual guidance in seconds — reducing administrative burden and improving audit consistency.
+    </p>
+  </section>
+  
   <section id="system-overview">
     <h2>System Overview</h2>
-    <p>The agent taps into a SharePoint site for policies and uses RPA flows to filter the latest SOX Controls captured in an online Excel file. It uses its AI capabilities to come up with possible questions based on the controls and policies provided to the auditor.</p>
-
+    <p>
+      The agent integrates with a centralized SharePoint policy repository and utilizes automated flows to retrieve the latest SOX control inventory from a structured online dataset. Based on user-selected audit areas, the solution surfaces applicable controls and generates walkthrough questions aligned to associated risks and policies.
+    </p>
+    <p>
+      The architecture intentionally separates deterministic control retrieval from generative AI question development to maintain reliability and governance.
+    </p>
+  </section>
+  
   <section id="problem-statement">
     <h2>Problem Statement</h2>
-    <p>Let's assume here that you are a Finance and Operations staff auditor. Every month you are assigned to a new entity to audit, and 3 - 5 areas to audit for that entity. For each of these areas you have to determine the controls to audit, applicable policies, and quetions to ask during the walkthroughs. This can take quite some time in administrative work. It's tedious and robs you from time better dedicated to preparing for the audit and analysis of the entity.</p>
+    <p>
+      Staff auditors are routinely assigned new entities and multiple in-scope areas each month. For every walkthrough, they must manually identify applicable controls, reference relevant policies, and draft structured questions — a repetitive and time-consuming administrative process.
+    </p>
+    <p>
+      For the auditor, this meant lost preparation time.  
+      For audit leadership, it meant inconsistent walkthrough quality across regions.  
+      For the organization, it created variability in control execution and documentation rigor.
+    </p>
+    <p>
+      A scalable, governed AI solution was needed to standardize walkthrough preparation while preserving audit quality and control accuracy.
+    </p>
   </section>
-
+  
   <section id="expected-outcome">
     <h2>Expected Outcome</h2>
-    <p>An agent that provides the staff auditor with applicable controls, risks, policies, and questions for an upcoming walkthrough of an area in scope, within seconds.</p>
+    <p>
+      Deploy an AI-enabled assistant capable of delivering relevant controls, associated risks, policy references, and structured walkthrough questions within seconds — enabling auditors to focus on analysis rather than administrative preparation.
+    </p>
   </section>
-
+  
   <section id="key-challenges">
     <h2>Key Challenges</h2>
     <ul>
-        <li>The main challenge here from a technical standpoint is how much an agent can be trusted to output consistently correct answers. To avoid this, the user was provided with a static list of areas to select from, and RPA was then used to look up the controls that correspond to that area, leaving the agent to come up with the possible questions and ensuring that the tool was consisteng in its output of applicable controls.</li>
+      <li>Ensuring AI-generated output remained accurate and consistent within a controls-driven environment.</li>
+      <li>Maintaining governance and traceability over which controls were surfaced.</li>
+      <li>Balancing automation with audit reliability and regulatory expectations.</li>
     </ul>
+  
+    <p>
+      To address model trust concerns, a structured user selection framework was implemented. Controls are retrieved deterministically through automated workflows, while generative AI is used solely for contextual question development — ensuring consistency and minimizing hallucination risk.
+    </p>
   </section>
-
+  
   <section id="solution-architecture">
     <h2>Solution Architecture</h2>
-    <img src="" alt="">
+    <p>
+      The solution integrates Microsoft Teams, SharePoint document repositories, automated data flows, and Copilot Studio AI capabilities into a governed orchestration layer. Deterministic control mapping is executed via workflow automation, while AI augmentation generates contextualized walkthrough prompts.
+    </p>
+  
+    <img src="" alt="Walkthrough Wizard Architecture">
   </section>
-
+  
   <section id="development">
-    <h2>Development</h2>
-    <p>Development took 6 weeks and by the end the users were able to interact with the agent via Teams.</p>
+    <h2>Development Approach</h2>
+    <p>
+      The solution was designed, developed, tested, and deployed over a six-week period. User testing focused on consistency, clarity of control mapping, and relevance of generated walkthrough prompts.
+    </p>
+    <p>
+      The final deployment enabled auditors to interact directly with the assistant through Microsoft Teams without requiring additional training or system access.
+    </p>
+  </section>
+  
+  <section id="impact">
+    <h2>Business Impact</h2>
     <ul>
-      <li></li>
+      <li>Reduced walkthrough preparation time by approximately 30 minutes per audit area.</li>
+      <li>Standardized control identification across regions and audit teams.</li>
+      <li>Improved consistency in walkthrough documentation and questioning structure.</li>
+      <li>Freed auditor capacity to focus on risk analysis and value-added insights.</li>
+      <li>Established a foundation for scalable AI adoption within Internal Audit.</li>
     </ul>
-    <p> 
- </section>
-
- <section id="impact">
-  <h2>Impact</h2>
-  <p>Auditors started leveraging the solution right away, saving a approximately 30 minutes per area in scope.</p>
-  <ul>
-    <li></li>
-  </ul>
-  <p> 
-</section>
-
-<section id="next-steps">
-  <h2>Next Steps</h2>
-  <p>As agentic solutions become more powerful, the Walkthrough Wizard will more than likely be migrated to a CoPilot Web solution that works out of a more robust prompt.</p>
-  <ul>
-    <li></li>
-  </ul>
-  <p> 
-</section>
-
-</div>
-<script src="js/script.js"></script>
-</body>
-</html>
+  </section>
+  
+  <section id="next-steps">
+    <h2>Next Steps</h2>
+    <p>
+      As agentic capabilities mature, the Walkthrough Wizard is positioned for migration to a more advanced Copilot web-based framework with expanded prompt orchestration, enhanced retrieval mechanisms, and deeper integration into audit workflows.
+    </p>
+  </section>
