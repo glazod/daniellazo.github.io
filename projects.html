@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights - Daniel Lazo</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+</head>
+
+<body>
+    <header id="hero">
+
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="container">
+            <!-- Logo -->
+            <h1 id="logo">
+              <a href="https://daniellazo.com"
+                ><img src="./assets/logo.png" alt="Your Logo"
+              /></a>
+            </h1>
+            <!-- Navbar links -->
+            <ul class="nav-menu">
+              <li><a class="nav-link" href="about.html">About</a></li>
+              <li><a class="nav-link" href="#projects">Projects</a></li>
+              <li><a class="nav-link" href="insights.html">Insights</a></li>
+              <li><a class="nav-link" href="https://linkedin.com/in/lazodaniel">LinkedIn</a></li>
+              <li>
+                <a
+                  class="nav-link btn btn-primary"
+                  href="./assets/lazo-daniel-resume.pdf"
+                  >Resume <i class="fas fa-arrow-right"></i
+                ></a>
+              </li>
+  
+              <!-- Hamburger menu -->
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+  <section class="container" style="margin-top: 8rem;">
+    <div class="content-text">
+      <h2>Projects</h2>
+      <p>Ideas on Finance, AI, Execution, and Career Strategy</p>
+    </div>
+
+    <div class="controls" style="margin: 2rem 0;">
+      <div id="tagFilters" class="tag-filter-bar"></div>
+
+      <select id="sortSelect">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="pillar">By Pillar</option>
+      </select>
+    </div>
+
+    <div id="allProjectsContainer" class="project"></div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+      <!-- Social links -->
+      <div class="social">
+  
+        <a href="https://linkedin.com/in/lazodaniel" target="_blank"
+          ><img src="./assets/linkedin-icon.svg" alt="Linkedin"
+        /></a>
+        
+      </div>
+      
+      <!-- Attribution -->
+      <p>Copyright &copy; 2026 Daniel Lazo <span id="datee"></span></p>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/projects-render-full.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
