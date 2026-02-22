@@ -70,7 +70,7 @@
           <ul class="nav-menu">
             <li><a class="nav-link" href="about.html">About</a></li>
             <li><a class="nav-link" href="#projects">Projects</a></li>
-            <!--<li><a class="nav-link" href="#blog">BLOG</a></li>-->
+            <li><a class="nav-link" href="insights.html">Insights</a></li>
             <li><a class="nav-link" href="https://linkedin.com/in/lazodaniel">LinkedIn</a></li>
             <li>
               <a
@@ -96,7 +96,7 @@
           src="assets/profile-image.png"
           alt=""
         />
-        <h1>Dan Lazo</h1>
+        <h1>Daniel Lazo</h1>
 
         <div class="content-text">
           <h2>Finance & Technology Transformation</h2>
@@ -122,83 +122,26 @@
         <h2>Projects</h2>
         <p>Check out some of my personal and paid projects</p>
       </div>
-
-      <article class="project">
-        <!-- Project 1 -->
-        <div class="card">
-          <a href="hfm_transformation.html" target="_blank" class="card-link"></a>
-
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Oracle HFM</h3>
-              <p>Power BI</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="card">
-          <a href="concur_t&e.html" target="_blank" class="card-link"></a>
-
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Concur T&E</h3>
-              <p>Power BI</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="card">
-          <a href="auditboard.html" target="_blank" class="card-link"></a>
-
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>AuditBoard Issue Aging</h3>
-              <p>Power BI, Power Automate</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="card">
-          <a href="ai_wizard.html" target="_blank" class="card-link"></a>
-
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Walkthrough Wizard</h3>
-              <p>CoPilot Studio, Power Automate</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="card">
-          <a href="sap_ariba.html" target="_blank" class="card-link"></a>
-
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>SAP Ariba</h3>
-              <p>Power BI</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="card">
-          <a href="service-now.html" target="_blank" class="card-link"></a>
-
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>ServiceNow</h3>
-              <p>Power BI</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
+      <article id="projectsContainer" class="project"></article>
     </section>
 
+<!-- Insights Preview -->
+<section id="insights-preview" class="container">
+  <div class="division"></div>
+
+  <div class="content-text">
+    <h2>Insights</h2>
+    <p>Selected thinking on Finance, AI, and Execution</p>
+  </div>
+
+  <div id="featuredInsights" class="insight-grid"></div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <a href="insights.html" class="btn btn-primary">View All Insights</a>
+  </div>
+</section>
+
+<!-- Footer -->
     <footer id="footer">
       <div class="container">
         <!-- Social links -->
@@ -214,6 +157,10 @@
         <p>Copyright &copy; 2026 Daniel Lazo <span id="datee"></span></p>
       </div>
     </footer>
+    <script src="js/projects-data.js"></script>
+    <script src="js/projects-render-home.js"></script>
+    <script src="js/insights-data.js"></script>
+    <script src="js/featured-render.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
