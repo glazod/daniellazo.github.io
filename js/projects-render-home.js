@@ -4,7 +4,7 @@ if (homeProjectsContainer) {
 
   const newestSix = projects
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 6);
+    .slice(0, 3);
 
   newestSix.forEach(project => {
     const card = document.createElement("div");

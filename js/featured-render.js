@@ -4,7 +4,7 @@ if (featuredContainer) {
 
   const newestFive = insights
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 5);
+    .slice(0, 6);
 
   newestFive.forEach(insight => {
     const card = document.createElement("div");
