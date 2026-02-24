@@ -1,37 +1,41 @@
 const projects = [
     {
-      title: "Oracle HFM Transformation",
+      title: "Finance Reporting Transformation",
       file: "hfm_transformation.html",
-      description: "Financial consolidation modernization and reporting redesign.",
+      description: "Financial Consolidation & Reporting Redesign",
+      image: "assets/project/project-hfm.png",
       category: "Finance Systems",
-      tags: ["HFM", "Power BI", "Data Modeling"],
+      tags: ["Finance", "Analytics"],
       tools: ["Power BI"],
       date: "2025-12-10"
     },
     {
       title: "Concur T&E Analytics",
       file: "concur_t&e.html",
-      description: "Expense reporting optimization and spend visibility dashboard.",
+      description: "Fraud Detection & Expense Reporting Optimization",
+      image: "assets/project/project-concur.png",
       category: "Analytics",
-      tags: ["Finance", "Spend", "Automation"],
+      tags: ["T&E", "Analytics"],
       tools: ["Power BI"],
       date: "2025-11-22"
     },
     {
       title: "AuditBoard Issue Aging",
       file: "auditboard.html",
-      description: "Automated issue risk tracking and aging visualization.",
+      description: "Automated Issue Aging & Tracking",
+      image: "assets/project/project-auditboard.png",
       category: "Internal Audit",
-      tags: ["Audit", "Automation", "Governance"],
+      tags: ["Audit", "Automation", "Governance", "Analytics"],
       tools: ["Power BI", "Power Automate"],
       date: "2025-11-10"
     },
     {
       title: "Walkthrough Wizard",
       file: "ai_wizard.html",
-      description: "AI-powered walkthrough assistant using Copilot Studio.",
+      description: "Internal Audit AI Policy & Walkthrough Assistant",
+      image: "assets/project/project-wizard.png",
       category: "Enterprise AI",
-      tags: ["AI", "Copilot", "Automation"],
+      tags: ["AI", "Automation"],
       tools: ["Copilot Studio", "Power Automate"],
       date: "2025-10-28"
     },
@@ -39,8 +43,9 @@ const projects = [
       title: "SAP Ariba Analytics",
       file: "sap_ariba.html",
       description: "Procurement reporting and supplier performance dashboard.",
+      image: "assets/project/project-ariba.png",
       category: "Finance Systems",
-      tags: ["SAP", "Procurement", "Analytics"],
+      tags: ["Procurement", "Analytics"],
       tools: ["Power BI"],
       date: "2025-10-01"
     },
@@ -48,8 +53,9 @@ const projects = [
       title: "ServiceNow Reporting",
       file: "service-now.html",
       description: "Operational KPI monitoring and ticket analytics.",
+      image: "assets/project/project-servicenow.png",
       category: "Operations",
-      tags: ["ServiceNow", "KPI", "Reporting"],
+      tags: ["Change Management", "Analytics"],
       tools: ["Power BI"],
       date: "2025-09-15"
     }

@@ -133,38 +133,6 @@ h2::selection {
   opacity: 1;
 }
 
-/* Project Images */
-
-/* project 1 */
-.card:nth-child(1) {
-  background: url(../assets/project/project-one-new.png) center center/cover;
-}
-
-/* Project 2 */
-.card:nth-child(2) {
-  background: url(../assets/project/project-two-new.png) center center/cover;
-}
-
-/* Project 3 */
-.card:nth-child(3) {
-  background: url(../assets/project/project-three-new.png) center center/cover;
-}
-
-/* Project 4 */
-.card:nth-child(4) {
-  background: url(../assets/project/project-four-new.png) center center/cover;
-}
-
-/* Project 5 */
-.card:nth-child(5) {
-  background: url(../assets/project/project-five-new.png) center center/cover;
-}
-
-/* Project 6 */
-.card:nth-child(6) {
-  background: url(../assets/project/project-six-new.png) center center/cover;
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
   .header-container {
